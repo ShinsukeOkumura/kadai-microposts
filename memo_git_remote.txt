@@ -1,0 +1,15 @@
+# Remote Repository
+git remote add origin https://github.com/ShinsukeOkumura/kadai-microposts.git
+git push -u origin master
+
+
+# Heroku
+ec2-user:~/environment/microposts (master) $ heroku create microposts-20190318
+Creating ⬢ microposts-20190318... done
+https://microposts-20190318.herokuapp.com/ | https://git.heroku.com/microposts-20190318.git
+
+
+# 以下、破棄
+$ git remote add origin https://github.com/ShinsukeOkumura/twitter_clone_201803.git
+$ git push -u origin master
+
