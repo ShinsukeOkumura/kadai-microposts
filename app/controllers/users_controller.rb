@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@microposts = @user.microposts.order('created_at DESC').page(params[:page])
 		counts(@user)
+		# 特定のユーザーが登録したお気に入りを全て取得
+		@favorites = Favorite.where("user_id = ?", @user)
   end
 
   def new
@@ -37,6 +39,18 @@ class UsersController < ApplicationController
 		counts(@user)
 	end
 	
+	#def favorites
+	#	@user = User.find(params[:id])
+	#	@favorites = @user.fav_posts.page(params[:page])
+	#	counts(@user)
+	#end
+	
+	def likes
+		@user = User.find(params[:id])
+		@favorites = @user.fav_posts.page(params[:page])
+		counts(@user)
+	end
+
 	private
 	
 	def user_params

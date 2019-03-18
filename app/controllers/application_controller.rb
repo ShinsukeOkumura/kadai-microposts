@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 	
 	def require_user_logged_in
 		unless logged_in?
-			p 'login_url = ', login_url
+			#p 'login_url = ', login_url
 			redirect_to login_url
 		end
 	end
@@ -16,5 +16,6 @@ class ApplicationController < ActionController::Base
 		@count_microposts = user.microposts.count
 		@count_followings = user.followings.count
 		@count_followers = user.followers.count
+		@count_favorites = user.fav_posts.count
 	end
 end

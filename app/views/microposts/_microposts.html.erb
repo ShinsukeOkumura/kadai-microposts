@@ -1,3 +1,4 @@
+<%#= p sprintf("# Here is app/views/microposts/_microposts.html.erb\n") %>
 <ul class="media-list">
 	<% microposts.each do |micropost| %>
 		<li class="media">
@@ -10,13 +11,17 @@
 				</div>
 				<div>
 					<p><%= micropost.content %></p>
-					<p>Flg-1</p>
-					<p><%= micropost %></p>
+					<p><%#= micropost %></p>
 				</div>
 				<div>
+					<p><%#= p sprintf("current_user = %s\n", current_user) %></p>
+					<%#= debug current_user.id %>
+					<p><%#= p sprintf("micropost.user = %s\n", micropost.user) %></p>
+					<%#= debug micropost.user_id %>
 					<% if current_user == micropost.user %>
 						<%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
 					<% end %>
+					<%= render 'favorites/fav_post_button', micropost: micropost, user: @user %>
 				</div>
 			</div>
 		</li>
