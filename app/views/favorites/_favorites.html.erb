@@ -1,7 +1,7 @@
 <ul class="media-list">
 	<li class="media">
 		<div class="media-left">
-			<%= favorites.each do |favorite| %>
+			<% favorites.each do |favorite| %>
 				<li class="media">
 					<div class="media-left">
 						<img class="media-object img-rounded" src="<%= gravatar_url(favorite.user, { size: 50 }) %>" alt="">
